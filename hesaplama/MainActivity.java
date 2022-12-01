@@ -2,6 +2,7 @@ package com.example.hesaplama;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -45,6 +46,17 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 hesapla();
+                /*
+                Intent ekran = new Intent(MainActivity.this,ekranGecis.class);
+                ekran.putExtra("NOT_ORTALAMA",txtSonuc.getText().toString());
+                startActivity(ekran);
+                */
+
+                OgrenciModel ogrenciModel = new OgrenciModel("Beyza","KOYULMUŞ",29);
+                Intent intent = new Intent(MainActivity.this,DetayActivity.class);
+                intent.putExtra(Constants.TAŞINAN_DATA_İSİM,ogrenciModel);
+                startActivity(intent);
+
             }
         });
     }
